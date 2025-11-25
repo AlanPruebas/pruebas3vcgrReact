@@ -31,39 +31,41 @@ function App(){
 
     return(
         <>
-        <h2>Lista de productos</h2>
-        <button onClick={() => {setNew(true);}}>Nuevo Producto</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    productos.map((producto) =>(
-                        <tr key = {producto.id}>
-                        <td>{producto.id}</td>
-                        <td>{producto.nombre}</td>
-                        <td>Bs.{producto.precio}</td>
-                        <td>
-                            <button onClick = {() => {
-                                setEditar(true);
-                                setID(producto.id)
-                            }}>Editar</button>
-                            
-                            <button onClick = {() =>
-                                eliminaProducto(producto.id)
-                            }>Elimina</button>
-                        </td>
-                        </tr>
-                    ))
-                }
-            </tbody>
-        </table>
+        <main className='caja-contenido col-9'>
+            <h2>Lista de productos</h2>
+            <button onClick={() => {setNew(true);}} className='btn-nuevo'>Nuevo Producto</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        productos.map((producto) =>(
+                            <tr key = {producto.id}>
+                            <td>{producto.id}</td>
+                            <td>{producto.nombre}</td>
+                            <td>Bs.{producto.precio}</td>
+                            <td>
+                                <button onClick = {() => {
+                                    setEditar(true);
+                                    setID(producto.id)
+                                }} className='btn-editar'>Editar</button>
+                                
+                                <button onClick = {() =>
+                                    eliminaProducto(producto.id)
+                                } className='btn-eliminar'>Eliminar</button>
+                            </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </main>
         </>
     )
 }
